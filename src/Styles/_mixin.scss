@@ -1,0 +1,22 @@
+// 파일명 앞에 _를 붙이는 이유는 CSS 파일로 컴파일되지 않도록 하기 위함
+// 변수만 저장해놓을 파일이므로 별도로 CSS파일로 컴파일 될 필요가 없어 성능 및 관리 상 이점이 있음!
+
+@import "./variables";
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-tablet + 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    @content;
+  }
+}

@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import "./CarouselSlider.scss";
 import { ImageData } from "./ImageData";
+import "./CarouselSlider.scss";
 
-const CarouselSlider = () => {
-  // 가장 최초에 보여지는 사진의 idx로 state 초기화
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [isMouseHovering, setIsMouseHovering] = useState(false);
+const CarouselSlider = (): JSX.Element => {
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const [isMouseHovering, setIsMouseHovering] = useState<boolean>(false);
   const length = ImageData.length;
-  // console.log(isMouseHovering);
 
-  const prevSlide = () => {
+  // slide 이동
+  const goToPrevSlide = () => {
     setCurrentIdx(currentIdx === 0 ? length - 1 : currentIdx - 1);
   };
 
-  const nextSlide = () => {
+  const goToNextSlide = () => {
     setCurrentIdx(currentIdx === length - 1 ? 0 : currentIdx + 1);
   };
 
   // autoslide 기능
   useEffect(() => {
-    // mouseover시 autoslide pausing
     if (isMouseHovering) {
       return;
     }
@@ -50,10 +48,10 @@ const CarouselSlider = () => {
       })}
 
       <div className="arrows">
-        <span className="prev" onClick={prevSlide}>
+        <span className="prev" onClick={goToPrevSlide}>
           &#10094;
         </span>
-        <span className="next" onClick={nextSlide}>
+        <span className="next" onClick={goToNextSlide}>
           &#10095;
         </span>
       </div>
