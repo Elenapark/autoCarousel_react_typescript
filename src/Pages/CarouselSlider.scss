@@ -1,0 +1,68 @@
+.slideContents {
+  position: relative;
+
+  .slideImg {
+    width: 100vw;
+    height: 80vh;
+
+    img {
+      position: absoulte;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .imgTitle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: white;
+      font-size: 40px;
+    }
+  }
+
+  .arrows {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+
+    .prev,
+    .next {
+      position: absolute;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  }
+
+  .dots {
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    display: flex;
+    justify-content: center;
+
+    .dot {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0 5px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+    .dot.active {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

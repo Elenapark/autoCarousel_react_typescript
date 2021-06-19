@@ -22,6 +22,6 @@ export const ImageData = [
   {
     title: "Fifth Slide",
     image:
-      "https://images.unsplash.com/photo-1496163668521-39614a16b23f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHJ1bm5pbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=300&q=60",
+      "https://images.unsplash.com/photo-1623986502308-2fb52a3ae211?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
   },
 ];
