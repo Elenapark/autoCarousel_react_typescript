@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ImageData } from "./ImageData";
+import SlideContents from "../Components/SlideContents";
+import Arrows from "../Components/Arrows";
+import Dots from "../Components/Dots";
 import "./CarouselSlider.scss";
 
-const CarouselSlider = (): JSX.Element => {
+const CarouselSlider: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
   const [isMouseHovering, setIsMouseHovering] = useState<boolean>(false);
-  const length = ImageData.length;
+  const length: number = ImageData.length;
 
   // slide 이동
-  const goToPrevSlide = () => {
+  const goToPrevSlide = (): void => {
     setCurrentIdx(currentIdx === 0 ? length - 1 : currentIdx - 1);
   };
 
-  const goToNextSlide = () => {
+  const goToNextSlide = (): void => {
     setCurrentIdx(currentIdx === length - 1 ? 0 : currentIdx + 1);
   };
 
@@ -31,38 +34,26 @@ const CarouselSlider = (): JSX.Element => {
     <section className="slideContents">
       {ImageData.map((img, idx) => {
         return (
-          <>
-            {idx === currentIdx && (
-              <div
-                className="slideImg"
-                key={idx}
-                onMouseEnter={() => setIsMouseHovering(true)}
-                onMouseLeave={() => setIsMouseHovering(false)}
-              >
-                <img src={img.image} alt="running img" />
-                <h3 className="imgTitle">{img.title}</h3>
-              </div>
-            )}
-          </>
+          <SlideContents
+            key={idx}
+            index={idx}
+            title={img.title}
+            image={img.image}
+            currentIdx={currentIdx}
+            setIsMouseHovering={setIsMouseHovering}
+          />
         );
       })}
-
-      <div className="arrows">
-        <span className="prev" onClick={goToPrevSlide}>
-          &#10094;
-        </span>
-        <span className="next" onClick={goToNextSlide}>
-          &#10095;
-        </span>
-      </div>
+      <Arrows goToPrevSlide={goToPrevSlide} goToNextSlide={goToNextSlide} />
       <div className="dots">
-        {ImageData.map((img, idx) => {
+        {ImageData.map((_, idx) => {
           return (
-            <span
+            <Dots
               key={idx}
-              className={idx === currentIdx ? "dot active" : "dot"}
-              onClick={() => setCurrentIdx(idx)}
-            ></span>
+              index={idx}
+              currentIdx={currentIdx}
+              setCurrentIdx={setCurrentIdx}
+            />
           );
         })}
       </div>
