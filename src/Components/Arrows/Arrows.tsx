@@ -1,11 +1,15 @@
 import React from "react";
+import "./Arrows.scss";
 
 interface ArrowProps {
   goToPrevSlide: () => void;
   goToNextSlide: () => void;
 }
 
-const Arrows = ({ goToPrevSlide, goToNextSlide }: ArrowProps) => {
+const Arrows: React.FC<ArrowProps> = ({
+  goToPrevSlide,
+  goToNextSlide,
+}: ArrowProps) => {
   return (
     <div className="arrows">
       <span className="prev" onClick={goToPrevSlide}>

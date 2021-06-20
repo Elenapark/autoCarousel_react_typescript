@@ -1,4 +1,5 @@
 import React from "react";
+import "./Dots.scss";
 
 interface DotsProps {
   index: number;
@@ -6,7 +7,11 @@ interface DotsProps {
   setCurrentIdx: (value: number | ((prevCurrentIdx: number) => number)) => void;
 }
 
-const Dots = ({ index, currentIdx, setCurrentIdx }: DotsProps) => {
+const Dots: React.FC<DotsProps> = ({
+  index,
+  currentIdx,
+  setCurrentIdx,
+}: DotsProps) => {
   return (
     <span
       className={index === currentIdx ? "dot active" : "dot"}

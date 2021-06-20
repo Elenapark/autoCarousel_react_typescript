@@ -1,7 +1,7 @@
 import React from "react";
-import CarouselSlider from "./Pages/CarouselSlider";
+import CarouselSlider from "./Pages/CarouselSlider/CarouselSlider";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <CarouselSlider />

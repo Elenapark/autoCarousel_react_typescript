@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ImageData } from "./ImageData";
-import SlideContents from "../Components/SlideContents";
-import Arrows from "../Components/Arrows";
-import Dots from "../Components/Dots";
+import { ImageData } from "../ImageData";
+import SlideContents from "../../Components/SlideContents/SlideContents";
+import Arrows from "../../Components/Arrows/Arrows";
+import Dots from "../../Components/Dots/Dots";
 import "./CarouselSlider.scss";
 
 const CarouselSlider: React.FC = () => {

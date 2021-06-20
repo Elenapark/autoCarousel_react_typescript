@@ -1,4 +1,5 @@
 import React from "react";
+import "./SlideContents.scss";
 
 interface SlideProps {
   index: number;
@@ -10,7 +11,7 @@ interface SlideProps {
   ) => void;
 }
 
-const SlideContents = ({
+const SlideContents: React.FC<SlideProps> = ({
   index,
   title,
   image,
